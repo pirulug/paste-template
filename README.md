@@ -1,3 +1,3 @@
-# PastePiru Theme
+# PastePiru Template
 
-Hola Mundo
+Este es una plantilla de PastePiru.
