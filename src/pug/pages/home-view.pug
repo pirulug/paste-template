@@ -1,0 +1,57 @@
+extends ../includes/layout-home
+
+append config
+  -pageName = 'Vista de paste'
+
+block content
+  .row
+    .col-sm-10
+      .card
+        .card-body
+          p.alert.alert-danger.p-3 Paste no encontrado!
+          h1 Titulo del paste
+          ul#myTab.nav.nav-tabs(role='tablist')
+            li.nav-item(role='presentation')
+              button#home-tab.nav-link.active(data-bs-toggle='tab' data-bs-target='#pestana1') Pestaña 1
+            li.nav-item(role='presentation')
+              button#profile-tab.nav-link(data-bs-toggle='tab' data-bs-target='#pestana2') Pestaña 2
+            li.nav-item(role='presentation')
+              button#contact-tab.nav-link(data-bs-toggle='tab' data-bs-target='#pestana3') Pestaña 3
+          #myTabContent.tab-content.p-2.border
+            #pestana1.tab-pane.fade.show.active Pestaña 1
+            #pestana2.tab-pane.fade Pestaña 2
+            #pestana3.tab-pane.fade Pestaña 3
+        .card-footer.text-center
+          a.btn.btn-primary.me-1 Editar
+          // Button trigger modal
+          button.btn.btn-danger(type='button' data-bs-toggle='modal' data-bs-target='#staticBackdrop')
+            | Reportar paste caido
+          // Modal
+          #staticBackdrop.modal.fade(data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true')
+            .modal-dialog
+              .modal-content
+                .modal-header.bg-primary
+                  h5#staticBackdropLabel.modal-title.h4.text-white Especifique su problema
+                  button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+                .modal-body
+                  p.text-danger Para que el problema de pueda solucionar rápidamente por favor sea lo mas claro posible, señalando si el error es grafico, ves títulos diferentes, el contenido no es acorde a lo que buscas o un enlace esta roto.
+                  textarea.form-control
+                .modal-footer.justify-content-center
+                  button.btn.btn-primary(type='button') Enviar
+                  button.btn.btn-secondary(type='button' data-bs-dismiss='modal') Cancelar
+
+          div.mt-4
+            p.h1.text-primary 22
+            i Vistas
+
+    .col-sm-2
+      .card
+        img.card-img-top(src="https://ui-avatars.com/api/?name=John+Doe")
+        .card-body.text-center
+          h3.h5 @Pirulug
+          a.btn.btn-outline-youtube.w-100.mb-1: i(data-feather="youtube")
+          a.btn.btn-outline-facebook.w-100.mb-1: i(data-feather="facebook")
+          a.btn.btn-outline-twitter.w-100.mb-1: i(data-feather="twitter")
+          a.btn.btn-outline-success.w-100.mb-1: i(data-feather="globe")
+
+    

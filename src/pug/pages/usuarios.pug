@@ -1,0 +1,49 @@
+extends ../includes/layout
+
+append config
+  -pageName = 'Usuarios'
+
+block content
+
+  .card.mb-3
+    .card-body
+      .table-responsive
+        table.table.table-hover.mb-0
+          thead
+            tr 
+              th Nombre de usuario 
+              th Tipo
+              th Aciones 
+          tbody
+            -let n = 1
+            while n <= 9
+              tr 
+                td 
+                  a(href='#') Usuario #{n++}
+                td 
+                  a.btn.btn-primary VIP
+                td 
+                  .btn-group 
+                    .btn.btn-sm.btn-outline-info(href='#') 
+                      i.fa.fa-eye
+                    .btn.btn-sm.btn-outline-danger(href='#') 
+                      i.fa.fa-trash
+                    .btn.btn-sm.btn-outline-success(href='#') 
+                      i.fa.fa-pen
+
+  .card 
+    .card-body
+      nav
+        ul.pagination.justify-content-center.m-0
+          li.page-item.disabled
+            a.page-link
+              i.fa.fa-angle-left
+          li.page-item
+            a.page-link(href='#') 1
+          li.page-item
+            a.page-link(href='#') 2
+          li.page-item
+            a.page-link(href='#') 3
+          li.page-item
+            a.page-link(href='#') 
+              i.fa.fa-angle-right

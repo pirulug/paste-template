@@ -1,0 +1,10 @@
+.simplebar-scrollbar:before {
+  background: $primary;
+}
+
+[data-simplebar] {
+  position: sticky;
+  top     : 0;
+  left    : 0;
+  width   : 260px;
+}

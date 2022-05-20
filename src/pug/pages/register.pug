@@ -1,0 +1,56 @@
+extends ../includes/layout-auth
+
+append config
+  -pageName = 'Dashboard'
+
+block content
+  .container.d-flex.flex-column
+    .row.vh-100
+      .col-sm-12.col-md-10.col-lg-4.mx-auto.d-table.h-100
+        .d-table-cell.align-middle          
+          .card
+            .card-header
+              h1.h1.text-center #{siteName}
+            .card-body
+              p.text-center.text-muted Register a new membership
+
+              form(action='#' method='post')
+                .input-group.mb-3
+                  input.form-control(type='text' placeholder='User Name')
+                  span.input-group-text 
+                    i.fa.fa-user                  
+                .input-group.mb-3
+                  input.form-control(type='email' placeholder='Email')
+                  span.input-group-text 
+                    i.fa.fa-envelope                  
+                .input-group.mb-3
+                  input.form-control(type='password' placeholder='Password')
+                  span.input-group-text 
+                    i.fa.fa-lock
+                .input-group.mb-3
+                  input.form-control(type='password' placeholder='Retype Password')
+                  span.input-group-text 
+                    i.fa.fa-lock
+                
+                .row
+                  .col-8
+                    .form-check
+                      input#agreeTerms.form-check-input(type='checkbox' value='')
+                      label.form-check-label(for='agreeTerms')
+                        | I agree to the 
+                        a(href="#") terms
+
+                  .col-4
+                    button.btn.btn-primary.w-100(type='submit') Sign In
+
+              .text-center.mt-2.mb-3
+                a.btn.btn-facebook.w-100.mb-1(href='#')
+                  i.fab.fa-facebook.me-2
+                  |  Sign up using Facebook
+                a.btn.btn-google.w-100.mb-1(href='#')
+                  i.fab.fa-google.me-2
+                  |  Sign up using Google
+
+              p.mb-0
+                a(href='#') I already have a membership
+              

@@ -1,0 +1,90 @@
+include ../config/config
+block config
+doctype html
+html(lang="es")
+  head
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description' content='')
+    meta(name='author' content='')
+    title #{siteName} | #{pageName}
+
+    // Css Bootstrap
+    link(rel="stylesheet" href="css/app.css")
+  body
+
+    //- NavBar
+    nav.navhome
+      .container
+        a.navbar-brand(href='#')
+          img.logo(src='https://anthoncode.com/wp-content/uploads/2020/07/logo-mega-m-cloud.png' alt='logo')
+          | #{siteName}
+        button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navHome')
+          span.navbar-toggler-icon
+        
+        #navHome.navhome-collapse.collapse
+          ul.navbar-nav.mx-auto
+            li.nav-item
+              a.nav-link.active(aria-current='page' href='#') Inicio
+            li.nav-item
+              a.nav-link(aria-current='page' href='#') Nuevo
+
+          ul.navbar-nav.navbar-align
+            li.nav-item
+              a.btn.btn-primary.me-1
+                i.fa.fa-sign-in
+                | Login
+            li.nav-item
+              a.btn.btn-outline-primary.me-1
+                i.fa.fa-user
+                | Register
+            
+            li.nav-item.dropdown
+              a.nav-link.dropdown-toggle(href='#' data-bs-toggle='dropdown')
+                img.avatar.img-fluid.rounded.me-1(src='https://ui-avatars.com/api/?name=John+Do' alt='Charles Hall')
+                span Charles Hall
+              ul.dropdown-menu.dropdown-menu-end
+                a.dropdown-item(href='pages-profile.html')
+                  i.align-middle.me-1(data-feather='user')
+                  |  Profile
+                a.dropdown-item(href='#')
+                  i.align-middle.me-1(data-feather='pie-chart')
+                  |  Analytics
+                .dropdown-divider
+                a.dropdown-item(href='pages-settings.html')
+                  i.align-middle.me-1(data-feather='settings')
+                  |  Settings &amp; Privacy
+                a.dropdown-item(href='#')
+                  i.align-middle.me-1(data-feather='help-circle')
+                  |  Help Center
+                .dropdown-divider
+                a.dropdown-item(href='#') Log out
+  
+    .container.my-3
+      .card.my-3.card-body Arriba Add
+      
+      block content
+
+      .card.my-3.card-body Abajo Add
+
+    //- Footer
+    .container
+      footer.py-3.my-4
+        ul.nav.justify-content-center.border-bottom.pb-3.mb-3
+          li.nav-item
+            a.nav-link.px-2.text-muted(href='#') Home
+          li.nav-item
+            a.nav-link.px-2.text-muted(href='#') Features
+          li.nav-item
+            a.nav-link.px-2.text-muted(href='#') Pricing
+          li.nav-item
+            a.nav-link.px-2.text-muted(href='#') FAQs
+          li.nav-item
+            a.nav-link.px-2.text-muted(href='#') About
+        p.text-center.text-muted &copy; 2021 Company, Inc
+
+
+    // Js Bootstrap
+    script(src='js/app.js')
+
+    block scripts 

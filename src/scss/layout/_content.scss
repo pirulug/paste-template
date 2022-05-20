@@ -1,0 +1,12 @@
+.content {
+  margin: 1.5rem;
+  padding: 0;
+
+  min-height: calc(100vh - 145px);
+}
+
+@include media-breakpoint-down(md) {
+  .content {
+    min-height: calc(100vh - 242px);
+  }
+}

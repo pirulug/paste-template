@@ -1,0 +1,48 @@
+//- layout.pug
+include ../config/config
+block config
+doctype html
+html(lang="es")
+  head
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description' content='')
+    meta(name='author' content='')
+    title #{siteName} | #{pageName}
+
+    // Css Bootstrap
+    link(rel="stylesheet" href="css/app.css")
+
+    block styles
+  body
+    .wrapper
+      include header
+
+      //- Sidebar
+      include sidebar
+
+      // main
+      .main#main
+        //- Nav Top
+        include navtop
+
+        //- Content
+        main.content
+        
+          //- Breadcrumb
+          section.d-flex.justify-content-between.align-items-center.py-1.mb-3  
+            h1.h3.d-inline.align-middle #{pageName}      
+            ol.breadcrumb.m-0
+              li.breadcrumb-item
+                a(href='#') Home
+              li.breadcrumb-item.active #{pageName}
+
+          block content
+
+        //- Footer
+        include footer
+
+    // Js Bootstrap
+    script(src='js/app.js')
+
+    block scripts 

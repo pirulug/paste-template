@@ -1,0 +1,196 @@
+extends ../includes/layout
+
+append config
+  -pageName = 'Configuraciones'
+
+block content
+  form(action='')
+    .row.row-cols-1.row-cols-lg-2.g-2.g-lg-3
+      .col
+        .card
+          .card-header 
+            h5.card-title.m-0 Datos del Admin 
+          .card-body
+            label.form-label Usuario admin
+            input.form-control(type='text' placeholder='Usuario admin')
+
+            label.form-label Nuevo password
+            input.form-control(type='text' placeholder='Nuevo password')
+
+            label.form-label Confirmar password
+            input.form-control(type='text' placeholder='Confirmar password')
+
+            label.form-label Auto key
+            input.form-control(type='text' placeholder='Auto key')
+
+      .col
+        .card
+          .card-header
+            h5.card-title.m-0 Publicidad
+          .card-body
+            label.form-label Publicidad arriba
+            textarea.form-control
+            
+            label.form-label Publicidad abajo
+            textarea.form-control
+            
+            label.form-label Publicidad inicio (en lugar del listado)
+            textarea.form-control
+      
+      .col
+        .card
+          .card-header
+            h5.card-title.m-0 Datos del sitio
+          .card-body
+            label.form-label
+              | Nombre
+            input.form-control(type='text' placeholder='Nombre')
+            label.form-label
+              | Descripci&oacute;n
+            input.form-control(type='text' placeholder='Descripcion')
+      
+      .col
+        .card
+          .card-header
+            h5.card-title.m-0 Datos del sitio
+          .card-body
+            label.form-label
+              | Registro de usuarios
+            select.form-select
+              option Activado
+              option Desactivado
+            label.form-label
+              | Confirmar por email
+            select.form-select
+              option Activado
+              option Desactivado
+            label.form-label
+              | Usuario vip
+            select.form-select
+              option Activado
+              option Desactivado
+            label.form-label
+              | Modelo de urls
+            select.form-select
+              option Modo Num&eacute;rico (?v=123)
+              option Modo Alfab&eacute;tico (?v=abc)
+              option Modo Compatibilidad (?v=123 -&gt; ?v=abc)
+            label.form-label
+              | Ocultar listado de inicio
+            select.form-select
+              option Activado
+              option Desactivado
+            label.form-label
+              | Contrase&ntilde;a del paste
+            select.form-select
+              option Activado
+              option Desactivado
+            label.form-label
+              | Captcha en paste
+            select.form-select
+              option Activado
+              option Desactivado
+
+      .col
+        .card
+          .card-header
+            h5.card-title.m-0 ReCaptcha
+          .card-body
+            .input-group.mb-3
+              span#basic-addon1.input-group-text Clave del sitio
+              input.form-control(type='text')
+            .input-group.mb-3
+              span#basic-addon1.input-group-text Clave secreta
+              input.form-control(type='text')
+
+            p Nota: Puedes obtener tus claves de recaptcha desde
+              a(href="https://www.google.com/recaptcha/admin") aqui
+
+    .text-center.mt-3
+      button.btn.btn-primary(type='submit') Guardar
+  //-.card 
+    .card-body
+
+      h5.card-subtitle.mb-3 Datos Admin
+
+      .input-group.mb-3
+        span#basic-addon1.input-group-text Usuario Admin
+        input.form-control(type='text')
+      .input-group.mb-3
+        span#basic-addon1.input-group-text Nueva contraseña
+        input.form-control(type='password')
+      .input-group.mb-3
+        span#basic-addon1.input-group-text Confirmar contraseña
+        input.form-control(type='password')
+
+      h5.card-subtitle.mb-3 Datos de la web
+
+      .input-group.mb-3
+        span#basic-addon1.input-group-text Nombre
+        input.form-control(type='text')
+      .input-group.mb-3
+        span#basic-addon1.input-group-text Descripción
+        input.form-control(type='text')
+
+      h5.card-subtitle.mb-3 Publicidad
+
+      .input-group.mb-3
+        span#basic-addon1.input-group-text Publicidad Arriba
+        textarea.form-control(type='text')
+      .input-group.mb-3
+        span#basic-addon1.input-group-text Publicidad Abajo
+        textarea.form-control(type='text')
+      .input-group.mb-3
+        span#basic-addon1.input-group-text Publicidad Inicio (en lugar del listado):
+        textarea.form-control(type='text')
+
+      h5.card-subtitle.mb-3 Modulos
+
+      .input-group.mb-3
+        span#basic-addon1.input-group-text Registro de usuarios
+        select.form-select
+          option(value='1') Activado
+          option(value='0') Desactivado
+      .input-group.mb-3
+        span#basic-addon1.input-group-text Confirmacion de e-mail
+        select.form-select
+          option(value='1') Activado
+          option(value='0') Desactivado
+      .input-group.mb-3
+        span#basic-addon1.input-group-text Usuarios VIP
+        select.form-select
+          option(value='1') Activado
+          option(value='0') Desactivado
+      .input-group.mb-3
+        span#basic-addon1.input-group-text Modo de urls
+        select.form-select
+          option(value='1') Activado
+          option(value='0') Desactivado
+      .input-group.mb-3
+        span#basic-addon1.input-group-text Ocultar listado en inicio
+        select.form-select
+          option(value='2') Modo Compatibilidad (?v=123 -> ?v=abc)
+          option(value='1') Modo Alfabético (?v=abc)
+          option(value='0') Modo Numérico (?v=123)
+      .input-group.mb-3
+        span#basic-addon1.input-group-text Contraseña en paste
+        select.form-select
+          option(value='1') Activado
+          option(value='0') Desactivado
+      .input-group.mb-3
+        span#basic-addon1.input-group-text Captcha en paste
+        select.form-select
+          option(value='1') Activado
+          option(value='0') Desactivado
+
+      h5.card-subtitle.mb-3 ReCaptcha
+
+      .input-group.mb-3
+        span#basic-addon1.input-group-text Clave del sitio
+        input.form-control(type='text')
+      .input-group.mb-3
+        span#basic-addon1.input-group-text Clave secreta
+        input.form-control(type='text')
+
+      p Nota: Puedes obtener tus claves de recaptcha desde
+        a(href="https://www.google.com/recaptcha/admin") aqui

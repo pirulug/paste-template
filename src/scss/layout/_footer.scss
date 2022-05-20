@@ -1,0 +1,27 @@
+.footer {
+  background: $footer-bg;
+  margin-left: 1.5rem;
+  padding: 0rem 1.5rem;
+  min-height: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-top-left-radius: $border-radius;
+  border-top: solid 0.065rem $gray-600;
+  border-left: solid 0.065rem $gray-600;
+
+  p {
+    display: block;
+    margin: 0;
+    margin-right: 1rem;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .footer {
+    margin-left: 0;
+    border-top-left-radius: 0;
+    flex-direction: column;
+  }
+}

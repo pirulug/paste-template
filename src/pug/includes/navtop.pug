@@ -1,0 +1,27 @@
+nav.navtop
+
+  ul.nav
+    //-li.nav-item
+      a.nav-link(href="#") 
+        i.fa.fa-bars
+    li.nav-item
+      a.nav-link.active(href='#')
+
+  ul.nav
+
+    li.nav-item.dropdown
+      a.nav-link(data-bs-toggle='dropdown' href='#') 
+        .d-flex.align-items-center
+          img.avatar.rounded-circle(src="https://ui-avatars.com/api/?name=Pirulug" alt="")
+          span.ms-2.text-dark.align-items-center.d-none.d-lg-block Pirulug
+      ul.dropdown-menu.dropdown-menu-end
+        li
+          a.dropdown-item(href='#') Profile
+        li
+          a.dropdown-item(href='#') Settings
+        li
+          a.dropdown-item(href='#') Messages
+        li
+          hr.dropdown-divider
+        li
+          a.dropdown-item(href='#') Logout

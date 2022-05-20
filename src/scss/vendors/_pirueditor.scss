@@ -1,0 +1,17 @@
+.pirueditor {
+
+  .piru-btns {
+    @extend .mb-1;
+  }
+
+  .piru-txt {
+    @extend .form-control;
+    height: 20rem;
+  }
+
+  .piru-preview{
+    background: $gray-100;
+    padding: 1rem;
+  }
+
+}

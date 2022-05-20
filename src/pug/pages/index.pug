@@ -1,0 +1,216 @@
+extends ../includes/layout
+
+append config
+  -pageName = 'Dashboard'
+
+block content
+
+  .row
+    .col-xl-6.col-xxl-5.d-flex
+      .w-100
+        .row
+          .col-sm-6
+            .card.mb-3
+              .card-body
+                .row
+                  .col.mt-0
+                    h5.card-title Sales
+                  .col-auto
+                    .stat.text-primary
+                      i.align-middle(data-feather='truck')
+                h1.mt-1.mb-3 2.382
+                .mb-0
+                  span.text-danger
+                    i.mdi.mdi-arrow-bottom-right
+                    |  -3.65%
+                  span.text-muted Since last week
+            .card.mb-3
+              .card-body
+                .row
+                  .col.mt-0
+                    h5.card-title Visitors
+                  .col-auto
+                    .stat.text-primary
+                      i.align-middle(data-feather='users')
+                h1.mt-1.mb-3 14.212
+                .mb-0
+                  span.text-success
+                    i.mdi.mdi-arrow-bottom-right
+                    |  5.25%
+                  span.text-muted Since last week
+          .col-sm-6
+            .card.mb-3
+              .card-body
+                .row
+                  .col.mt-0
+                    h5.card-title Earnings
+                  .col-auto
+                    .stat.text-primary
+                      i.align-middle(data-feather='dollar-sign')
+                h1.mt-1.mb-3 $21.300
+                .mb-0
+                  span.text-success
+                    i.mdi.mdi-arrow-bottom-right
+                    |  6.65%
+                  span.text-muted Since last week
+            .card.mb-3
+              .card-body
+                .row
+                  .col.mt-0
+                    h5.card-title Orders
+                  .col-auto
+                    .stat.text-primary
+                      i.align-middle(data-feather='shopping-cart')
+                h1.mt-1.mb-3 64
+                .mb-0
+                  span.text-danger
+                    i.mdi.mdi-arrow-bottom-right
+                    |  -2.25%
+                  span.text-muted Since last week
+    .col-xl-6.col-xxl-7
+      .card.mb-3.flex-fill.w-100
+        .card-header
+          h5.card-title.mb-0 Recent Movement
+        .card-body.py-3
+          canvas#chartjs-dashboard-line
+  .row
+    .col-12
+      .card.flex-fill
+        .card-header
+          h5.card-title.mb-0 Latest Projects
+        table.table.table-hover.my-0
+          thead
+            tr
+              th Name
+              th.d-none.d-xl-table-cell Start Date
+              th.d-none.d-xl-table-cell End Date
+              th Status
+              th.d-none.d-md-table-cell Assignee
+          tbody
+            tr
+              td Project Apollo
+              td.d-none.d-xl-table-cell 01/01/2021
+              td.d-none.d-xl-table-cell 31/06/2021
+              td
+                span.badge.bg-success Done
+              td.d-none.d-md-table-cell Vanessa Tucker
+            tr
+              td Project Fireball
+              td.d-none.d-xl-table-cell 01/01/2021
+              td.d-none.d-xl-table-cell 31/06/2021
+              td
+                span.badge.bg-danger Cancelled
+              td.d-none.d-md-table-cell William Harris
+            tr
+              td Project Hades
+              td.d-none.d-xl-table-cell 01/01/2021
+              td.d-none.d-xl-table-cell 31/06/2021
+              td
+                span.badge.bg-success Done
+              td.d-none.d-md-table-cell Sharon Lessman
+            tr
+              td Project Nitro
+              td.d-none.d-xl-table-cell 01/01/2021
+              td.d-none.d-xl-table-cell 31/06/2021
+              td
+                span.badge.bg-warning In progress
+              td.d-none.d-md-table-cell Vanessa Tucker
+            tr
+              td Project Phoenix
+              td.d-none.d-xl-table-cell 01/01/2021
+              td.d-none.d-xl-table-cell 31/06/2021
+              td
+                span.badge.bg-success Done
+              td.d-none.d-md-table-cell William Harris
+            tr
+              td Project X
+              td.d-none.d-xl-table-cell 01/01/2021
+              td.d-none.d-xl-table-cell 31/06/2021
+              td
+                span.badge.bg-success Done
+              td.d-none.d-md-table-cell Sharon Lessman
+            tr
+              td Project Romeo
+              td.d-none.d-xl-table-cell 01/01/2021
+              td.d-none.d-xl-table-cell 31/06/2021
+              td
+                span.badge.bg-success Done
+              td.d-none.d-md-table-cell Christina Mason
+            tr
+              td Project Wombat
+              td.d-none.d-xl-table-cell 01/01/2021
+              td.d-none.d-xl-table-cell 31/06/2021
+              td
+                span.badge.bg-warning In progress
+              td.d-none.d-md-table-cell William Harris
+
+block scripts 
+
+  script.
+
+    const ctx2 = document.getElementById("chartjs-dashboard-line").getContext("2d");
+    const gradient = ctx2.createLinearGradient(0, 0, 0, 225);
+    gradient.addColorStop(0, "rgba(215, 227, 244, 1)");
+    gradient.addColorStop(1, "rgba(215, 227, 244, 0)");
+    // Line chart
+    new Chart(document.getElementById("chartjs-dashboard-line"), {
+      type: "line",
+      data: {
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        datasets: [{
+          label: "Sales ($)",
+          fill: true,
+          backgroundColor: gradient,
+          borderColor: window.theme.primary,
+          data: [
+            2115,
+            1562,
+            1584,
+            1892,
+            1587,
+            1923,
+            2566,
+            2448,
+            2805,
+            3438,
+            2917,
+            3327
+          ]
+        }]
+      },
+      options: {
+        maintainAspectRatio: false,
+        legend: {
+          display: false
+        },
+        tooltips: {
+          intersect: false
+        },
+        hover: {
+          intersect: true
+        },
+        plugins: {
+          filler: {
+            propagate: false
+          }
+        },
+        scales: {
+          xAxes: [{
+            reverse: true,
+            gridLines: {
+              color: "rgba(0,0,0,0.0)"
+            }
+          }],
+          yAxes: [{
+            ticks: {
+              stepSize: 1000
+            },
+            display: true,
+            borderDash: [3, 3],
+            gridLines: {
+              color: "rgba(0,0,0,0.0)"
+            }
+          }]
+        }
+      }
+    });
