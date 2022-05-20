@@ -1,0 +1,119 @@
+extends ../includes/layout-home
+
+append config
+  -pageName = 'Nuevo Paste'
+
+block content
+
+  .card 
+    .card-body
+
+      ul.nav.nav-tabs
+        li.nav-item
+          button.nav-link.active(data-bs-toggle='tab' data-bs-target='#nav-tap-1' type='button') 
+            span#titlePesta1 Desactivado
+        li.nav-item
+          button.nav-link(data-bs-toggle='tab' data-bs-target='#nav-tap-2' type='button') 
+            span#titlePesta2 Desactivado
+        li.nav-item
+          button.nav-link(data-bs-toggle='tab' data-bs-target='#nav-tap-3' type='button') 
+            span#titlePesta3 Desactivado
+        li.nav-item
+          button.nav-link(data-bs-toggle='tab' data-bs-target='#nav-tap-4' type='button') 
+            span#titlePesta4 Desactivado
+        li.nav-item
+          button.nav-link(data-bs-toggle='tab' data-bs-target='#nav-tap-5' type='button') 
+            span#titlePesta5 Desactivado
+        li.nav-item
+          button.nav-link(data-bs-toggle='tab' data-bs-target='#nav-tap-6' type='button') 
+            span#titlePesta6 Desactivado
+      
+      .tab-content
+        #nav-tap-1.tab-pane.fade.show.active 
+          .input-group.my-3
+            label.input-group-text Pestaña 1              
+            input#inputPesta1.form-control(type="text")
+          .pirueditor
+            .piru-btns#pirueditor-1
+            textarea.piru-txt#tpirueditor-1 
+              | [b]Negrita 1[/b]
+
+        #nav-tap-2.tab-pane.fade
+          .input-group.my-3
+            label.input-group-text Pestaña 2
+            input#inputPesta2.form-control(type="text")
+          .pirueditor
+            .piru-btns#pirueditor-2
+            textarea.piru-txt#tpirueditor-2 
+              | [b]Negrita 2[/b]
+
+        #nav-tap-3.tab-pane.fade 
+          .input-group.my-3
+            label.input-group-text Pestaña 3
+            input#inputPesta3.form-control(type="text")
+          .pirueditor
+            .piru-btns#pirueditor-3
+            textarea.piru-txt#tpirueditor-3 
+              | [b]Negrita 3[/b]
+
+        #nav-tap-4.tab-pane.fade 
+          .input-group.my-3
+            label.input-group-text Pestaña 4
+            input#inputPesta4.form-control(type="text")
+          .pirueditor
+            .piru-btns#pirueditor-4
+            textarea.piru-txt#tpirueditor-4 
+              | [b]Negrita 4[/b]
+
+        #nav-tap-5.tab-pane.fade 
+          .input-group.my-3
+            label.input-group-text Pestaña 5
+            input#inputPesta5.form-control(type="text")
+          .pirueditor
+            .piru-btns#pirueditor-5
+            textarea.piru-txt#tpirueditor-5 
+              | [b]Negrita 5[/b]
+
+        #nav-tap-6.tab-pane.fade 
+          .input-group.my-3
+            label.input-group-text Pestaña 6
+            input#inputPesta6.form-control(type="text")
+          .pirueditor
+            .piru-btns#pirueditor-6
+            textarea.piru-txt#tpirueditor-6 
+              | [b]Negrita 6[/b]
+
+      .input-group.my-3
+        sapn.input-group-text Tipo de paste
+        select.form-select
+          option(value="1") Publico
+          option(value="2") Vip
+
+      .input-group.mb-3
+        sapn.input-group-text Contraseña
+        input.form-control(type="text")
+
+      .text-center
+        .btn.btn-primary(type="submit") Guardar
+
+  -let n = 1
+    while n <= 6
+      // Modal
+      .modal.fade(id='vpM-pirueditor-'+n tabindex='-1')
+        .modal-dialog.modal-dialog-scrollable.modal-lg
+          .modal-content
+            .modal-header
+              h5#exampleModalLabel.modal-title Vista previa #{n}
+              button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+            .modal-body
+              .piru-preview(id='boxPreview-' + n++)
+            .modal-footer
+              button.btn.btn-secondary(type='button' data-bs-dismiss='modal') Cerrar
+
+block scripts
+  // Parser
+  script(src='libs/parserBB/parser.js')
+  // Pirueditor
+  script(src='libs/pirueditor/pirueditor.js')
+  // pirutab
+  script(src='libs/pirutabs/pirutab.js')
